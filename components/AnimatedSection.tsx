@@ -1,68 +1,47 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export function RevealOnScroll({ children, delay = 0, className = "" }: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
+export function Reveal({ children, delay = 0, className = "" }: {
+  children: React.ReactNode; delay?: number; className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
+  const [on, setOn] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setOn(true); o.disconnect(); } }, { threshold: 0.12 });
+    o.observe(el);
+    return () => o.disconnect();
   }, []);
-
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
+    <div ref={ref} style={{
+      opacity: on ? 1 : 0,
+      transform: on ? "none" : "translateY(18px)",
+      transition: `opacity .6s ease ${delay}ms, transform .6s cubic-bezier(.22,1,.36,1) ${delay}ms`
+    }} className={className}>{children}</div>
   );
 }
 
-export function StaggerGrid({ children, className = "" }: { children: React.ReactNode[]; className?: string }) {
+export function StaggerGrid({ items, className = "", renderItem }: {
+  items: unknown[]; className?: string; renderItem: (item: unknown, i: number) => React.ReactNode;
+}) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
+  const [on, setOn] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setOn(true); o.disconnect(); } }, { threshold: 0.08 });
+    o.observe(el);
+    return () => o.disconnect();
   }, []);
-
   return (
     <div ref={ref} className={className}>
-      {(children as React.ReactNode[]).map((child, i) => (
-        <div
-          key={i}
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(24px)",
-            transition: `opacity 0.6s ease ${i * 80}ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${i * 80}ms`,
-          }}
-        >
-          {child}
-        </div>
+      {items.map((item, i) => (
+        <div key={i} style={{
+          opacity: on ? 1 : 0,
+          transform: on ? "none" : "translateY(16px)",
+          transition: `opacity .5s ease ${i*90}ms, transform .5s cubic-bezier(.22,1,.36,1) ${i*90}ms`
+        }}>{renderItem(item, i)}</div>
       ))}
     </div>
   );

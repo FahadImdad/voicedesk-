@@ -1,206 +1,206 @@
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
-import { RevealOnScroll, StaggerGrid } from "@/components/AnimatedSection";
-
-const industries = [
-  { icon: "🦷", title: "Dental Clinics", desc: "Never miss a patient call again.", href: "/dental", bg: "from-blue-600 to-cyan-500" },
-  { icon: "🏠", title: "Real Estate", desc: "Qualify leads. Book showings. Close more deals.", href: "/real-estate", bg: "from-emerald-600 to-teal-400" },
-  { icon: "💆", title: "Salons & Spas", desc: "Fill your calendar without lifting a finger.", href: "/salons", bg: "from-pink-600 to-rose-400" },
-];
-
-const features = [
-  { emoji: "⚡", title: "Instant Answer", desc: "Under 1 second. Every time.", bg: "bg-amber-50 border-amber-100", accent: "text-amber-600" },
-  { emoji: "📅", title: "Books Appointments", desc: "Syncs with your calendar in real time.", bg: "bg-purple-50 border-purple-100", accent: "text-purple-600" },
-  { emoji: "🌙", title: "24/7 Coverage", desc: "Nights, weekends, holidays — always on.", bg: "bg-indigo-50 border-indigo-100", accent: "text-indigo-600" },
-  { emoji: "🎙️", title: "Sounds Human", desc: "Natural, warm voice. Callers feel heard.", bg: "bg-pink-50 border-pink-100", accent: "text-pink-600" },
-  { emoji: "📋", title: "Call Summaries", desc: "Full recap delivered to your inbox.", bg: "bg-green-50 border-green-100", accent: "text-green-600" },
-  { emoji: "🔧", title: "Custom Script", desc: "Trained on your exact business.", bg: "bg-orange-50 border-orange-100", accent: "text-orange-600" },
-];
-
-const steps = [
-  { num: "1", title: "We build your agent", desc: "Configured with your business info, services, and tone.", color: "from-purple-600 to-violet-500" },
-  { num: "2", title: "Forward your calls", desc: "Point your number to VoiceDesk. 2 minutes. No tech needed.", color: "from-blue-600 to-cyan-500" },
-  { num: "3", title: "It handles everything", desc: "Every call answered, every booking logged. You get daily summaries.", color: "from-emerald-600 to-teal-500" },
-];
+import { Reveal, StaggerGrid } from "@/components/AnimatedSection";
 
 export default function Home() {
   return (
-    <div className="pt-16 overflow-x-hidden">
+    <div className="pt-14">
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-[92vh] flex flex-col items-center justify-center px-5 py-24 text-center bg-gray-950">
-        <div className="blob w-[600px] h-[600px] bg-purple-700 opacity-20 top-0 left-1/2 -translate-x-1/2" />
-        <div className="blob w-80 h-80 bg-pink-600 opacity-15 bottom-0 right-0" />
-        <div className="blob w-64 h-64 bg-blue-600 opacity-10 top-20 left-0" />
+      {/* HERO — tight, dark, no scroll needed */}
+      <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 px-5 py-16 bg-gray-950 overflow-hidden">
+        {/* subtle glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-purple-700 opacity-10 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="relative z-10 animate-fade-up flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-bold px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            AI Receptionist · Live 24/7
+        {/* Left — text */}
+        <div className="relative z-10 max-w-xl text-center lg:text-left fade-up">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold text-purple-300 border border-purple-800 bg-purple-950 px-3 py-1.5 rounded-full mb-6">
+            <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"/>
+            AI Voice Receptionist
           </div>
-
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[1.05] tracking-tight max-w-4xl mb-6">
-            Your phones,{" "}
-            <span className="gradient-text">answered.</span>
-            <br />Always.
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight mb-5">
+            Never miss a call.<br/>
+            <span className="gradient-text">Never lose a customer.</span>
           </h1>
-
-          <p className="text-lg sm:text-xl text-gray-400 max-w-lg mb-10 leading-relaxed">
-            VoiceDesk answers every call, books appointments, and handles inquiries —
-            so you never lose a customer to voicemail again.
+          <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            VoiceDesk answers every call, books appointments, and handles inquiries — 24/7. Your business keeps running even when you don't pick up.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs sm:max-w-none sm:justify-center animate-fade-up delay-200">
-            <Link href="/demo" className="btn-scale bg-purple-600 text-white font-bold px-8 py-4 rounded-2xl text-base shadow-lg shadow-purple-900">
-              Hear the Demo →
+          <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <Link href="/demo" className="btn bg-purple-700 text-white font-bold px-7 py-3.5 rounded-xl text-base">
+              Hear a Live Demo →
             </Link>
-            <Link href="/contact" className="btn-scale bg-white/10 border border-white/20 text-white font-bold px-8 py-4 rounded-2xl text-base backdrop-blur-sm">
-              Book a Call
+            <Link href="/contact" className="btn bg-white/10 border border-white/15 text-white font-bold px-7 py-3.5 rounded-xl text-base">
+              Talk to Us
             </Link>
           </div>
-          <p className="mt-5 text-xs text-gray-500 animate-fade-up delay-300">No credit card · Setup in 24 hours · Cancel anytime</p>
+          <p className="mt-5 text-xs text-gray-500">No credit card · Live in 24 hours · Cancel anytime</p>
         </div>
 
-        {/* Voice agent card */}
-        <div className="relative z-10 mt-16 animate-fade-up delay-400">
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 w-72 mx-auto text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-5 flex items-center justify-center animate-float shadow-lg shadow-purple-900">
-              <span className="text-3xl">🎙️</span>
+        {/* Right — voice agent visual */}
+        <div className="relative z-10 fade-up d2">
+          <div className="w-64 bg-white/5 border border-white/10 backdrop-blur-sm rounded-3xl p-7 text-center">
+            {/* avatar */}
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl float shadow-xl shadow-purple-900">
+              🎙️
             </div>
-            <p className="font-black text-white text-base mb-1">VoiceDesk Agent</p>
-            <p className="text-green-400 text-xs font-semibold mb-6">● Active · Listening</p>
-            <div className="flex items-end justify-center gap-1.5 h-10 mb-6">
-              {["h-3","h-6","h-9","h-7","h-10","h-6","h-4"].map((h, i) => (
-                <span key={i} className={`bar bg-purple-400 ${h}`} />
+            <p className="text-white font-bold text-sm mb-0.5">Sarah · VoiceDesk</p>
+            <p className="text-green-400 text-xs mb-5">● Live now</p>
+            {/* wave */}
+            <div className="flex items-end justify-center gap-1.5 h-8 mb-5">
+              <span className="bar" style={{height:"10px"}}/>
+              <span className="bar" style={{height:"18px"}}/>
+              <span className="bar" style={{height:"28px"}}/>
+              <span className="bar" style={{height:"22px"}}/>
+              <span className="bar" style={{height:"28px"}}/>
+            </div>
+            {/* transcript */}
+            <div className="bg-black/30 rounded-xl p-3 text-left mb-4 border border-white/10">
+              <p className="text-purple-300 text-[10px] font-bold mb-1 uppercase tracking-wider">Transcript</p>
+              <p className="text-white text-xs leading-relaxed">"I have 10am available — shall I book that for you?"</p>
+            </div>
+            {/* status row */}
+            <div className="flex justify-between text-[11px]">
+              <span className="text-gray-400">Call duration</span>
+              <span className="text-white font-semibold">0:42</span>
+            </div>
+          </div>
+          {/* pills */}
+          <div className="absolute -left-12 top-10 bg-white rounded-2xl shadow-lg px-3 py-2 text-xs font-bold text-gray-800 whitespace-nowrap float" style={{animationDelay:".4s"}}>
+            📞 Answered in 0.8s
+          </div>
+          <div className="absolute -right-10 bottom-12 bg-white rounded-2xl shadow-lg px-3 py-2 text-xs font-bold text-gray-800 whitespace-nowrap float" style={{animationDelay:"1.2s"}}>
+            ✅ Appointment booked
+          </div>
+        </div>
+      </section>
+
+      {/* WHO IT'S FOR — 3 cards, compact */}
+      <section className="py-16 px-5 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">Built for businesses that can't afford to miss calls</h2>
+            <p className="text-gray-500 text-sm">Choose your industry below.</p>
+          </Reveal>
+          <StaggerGrid
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+            items={[
+              { icon: "🦷", title: "Dental Clinics", desc: "Patients call, get answered instantly, and book — even at 9pm.", href: "/dental", from: "from-violet-600", to: "to-blue-500" },
+              { icon: "🏠", title: "Real Estate", desc: "Every lead answered. Showings booked. No missed opportunities.", href: "/real-estate", from: "from-emerald-500", to: "to-teal-400" },
+              { icon: "💆", title: "Salons & Spas", desc: "Clients book any time. Your chair stays full.", href: "/salons", from: "from-rose-500", to: "to-pink-400" },
+            ]}
+            renderItem={(ind: any) => (
+              <Link href={ind.href} className={`group block p-6 rounded-2xl bg-gradient-to-br ${ind.from} ${ind.to} text-white overflow-hidden relative hover:opacity-90 transition-opacity`}>
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"/>
+                <div className="text-3xl mb-4">{ind.icon}</div>
+                <h3 className="font-black text-base mb-1">{ind.title}</h3>
+                <p className="text-white/75 text-xs leading-relaxed mb-4">{ind.desc}</p>
+                <span className="text-white/90 text-xs font-bold">Learn more →</span>
+              </Link>
+            )}
+          />
+        </div>
+      </section>
+
+      {/* WHAT IT DOES — clean list, no cards */}
+      <section className="py-16 px-5 bg-gray-50">
+        <div className="max-w-3xl mx-auto">
+          <Reveal className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">One agent. Your whole front desk.</h2>
+          </Reveal>
+          <StaggerGrid
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+            items={[
+              ["⚡", "Answers in under 1 second", "No hold music. No voicemail."],
+              ["📅", "Books appointments", "Syncs with your calendar automatically."],
+              ["🌙", "Works 24/7", "Nights, weekends, holidays — always on."],
+              ["🎙️", "Sounds natural", "Warm, human voice. Not robotic."],
+              ["📋", "Sends you summaries", "Know what every caller said."],
+              ["🔧", "Custom trained", "Knows your business, services, FAQs."],
+            ]}
+            renderItem={([emoji, title, desc]: any) => (
+              <div className="flex items-start gap-4 bg-white p-5 rounded-2xl border border-gray-100">
+                <span className="text-2xl flex-shrink-0">{emoji}</span>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">{title}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">{desc}</p>
+                </div>
+              </div>
+            )}
+          />
+        </div>
+      </section>
+
+      {/* HOW IT WORKS — 3 steps, minimal */}
+      <section className="py-16 px-5 bg-white">
+        <div className="max-w-2xl mx-auto">
+          <Reveal className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">Up and running in 24 hours</h2>
+            <p className="text-gray-500 text-sm">Zero tech skills needed.</p>
+          </Reveal>
+          <div className="relative">
+            <div className="absolute left-6 top-8 bottom-8 w-px bg-gray-100 hidden sm:block"/>
+            <div className="flex flex-col gap-6">
+              {[
+                ["We build your agent", "Configured for your business — services, tone, FAQs."],
+                ["You forward your calls", "Point your existing number to VoiceDesk. 2 minutes."],
+                ["It handles everything", "Calls answered. Bookings made. Summaries sent to you."],
+              ].map(([title, desc], i) => (
+                <Reveal key={i} delay={i * 100}>
+                  <div className="flex gap-5 items-start sm:pl-0">
+                    <div className="w-12 h-12 flex-shrink-0 bg-purple-700 text-white font-black text-base rounded-2xl flex items-center justify-center z-10">
+                      {i + 1}
+                    </div>
+                    <div className="pt-2">
+                      <p className="font-bold text-gray-900 text-sm">{title}</p>
+                      <p className="text-gray-500 text-xs mt-1">{desc}</p>
+                    </div>
+                  </div>
+                </Reveal>
               ))}
             </div>
-            <div className="bg-white/10 rounded-xl px-4 py-3 text-left border border-white/10">
-              <p className="text-xs text-gray-400 mb-1 font-medium">LIVE TRANSCRIPT</p>
-              <p className="text-sm text-white font-medium">"Sure, I can book that for you…"</p>
-            </div>
-          </div>
-          <div className="absolute -left-8 top-8 bg-white shadow-xl rounded-2xl px-3 py-2 text-xs font-bold text-gray-800 whitespace-nowrap animate-float" style={{animationDelay:"0.5s"}}>
-            📞 Call answered
-          </div>
-          <div className="absolute -right-8 bottom-12 bg-white shadow-xl rounded-2xl px-3 py-2 text-xs font-bold text-gray-800 whitespace-nowrap animate-float" style={{animationDelay:"1s"}}>
-            📅 Appointment booked ✓
           </div>
         </div>
       </section>
 
-      {/* ── INDUSTRIES ── */}
-      <section className="py-24 px-5 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <RevealOnScroll className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Built for your industry</h2>
-            <p className="text-gray-500">Specialized agents, trained for your exact business.</p>
-          </RevealOnScroll>
-          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {industries.map((ind) => (
-              <Link
-                key={ind.href}
-                href={ind.href}
-                className={`card-hover group block p-8 rounded-3xl bg-gradient-to-br ${ind.bg} text-white overflow-hidden relative`}
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8" />
-                <div className="text-4xl mb-5">{ind.icon}</div>
-                <h3 className="font-black text-xl mb-2">{ind.title}</h3>
-                <p className="text-white/80 text-sm mb-5">{ind.desc}</p>
-                <span className="inline-flex items-center gap-1 text-white font-bold text-sm bg-white/20 px-4 py-1.5 rounded-full">
-                  Learn more →
-                </span>
-              </Link>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* ── FEATURES ── */}
-      <section className="py-24 px-5 bg-gray-950">
-        <div className="max-w-5xl mx-auto">
-          <RevealOnScroll className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">Everything included</h2>
-            <p className="text-gray-400">One agent handles your entire front desk.</p>
-          </RevealOnScroll>
-          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f) => (
-              <div key={f.title} className={`card-hover p-6 rounded-2xl border ${f.bg}`}>
-                <span className="text-3xl mb-4 block">{f.emoji}</span>
-                <h3 className={`font-black text-gray-900 mb-1 ${f.accent}`}>{f.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section className="py-24 px-5 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <RevealOnScroll className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Live in 24 hours</h2>
-            <p className="text-gray-500">No tech skills needed. We handle the setup.</p>
-          </RevealOnScroll>
-          <div className="flex flex-col gap-5">
-            {steps.map((s, i) => (
-              <RevealOnScroll key={s.num} delay={i * 120}>
-                <div className={`flex gap-5 items-center p-6 rounded-2xl bg-gradient-to-r ${s.color} text-white`}>
-                  <div className="w-12 h-12 flex-shrink-0 bg-white/20 font-black text-2xl rounded-2xl flex items-center justify-center">
-                    {s.num}
-                  </div>
-                  <div>
-                    <h3 className="font-black text-lg mb-0.5">{s.title}</h3>
-                    <p className="text-white/80 text-sm">{s.desc}</p>
-                  </div>
+      {/* PRICING — one card, no fluff */}
+      <section id="pricing" className="py-16 px-5 bg-gray-950">
+        <div className="max-w-xs mx-auto">
+          <Reveal>
+            <p className="text-center text-gray-400 text-sm mb-8 font-medium">One plan. No surprises.</p>
+            <div className="bg-white rounded-3xl overflow-hidden">
+              <div className="h-1 bg-gradient-to-r from-purple-600 to-pink-500"/>
+              <div className="p-8">
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-3">Professional</p>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className="text-5xl font-black text-gray-900">$397</span>
+                  <span className="text-gray-400 text-sm">/mo</span>
                 </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRICING ── */}
-      <section id="pricing" className="py-24 px-5 bg-gray-950">
-        <div className="max-w-sm mx-auto">
-          <RevealOnScroll className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">Simple pricing</h2>
-            <p className="text-gray-400 mb-12">One plan. Everything included.</p>
-            <div className="relative rounded-3xl p-8 overflow-hidden" style={{background:"linear-gradient(135deg,#3b0764 0%,#4c1d95 50%,#5b21b6 100%)"}}>
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400" />
-              <div className="blob w-40 h-40 bg-pink-600 opacity-20 top-0 right-0" />
-              <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-4">Professional</p>
-              <div className="flex items-end justify-center gap-1 mb-6">
-                <span className="text-6xl font-black text-white">$397</span>
-                <span className="text-purple-300 mb-2 text-sm">/mo</span>
+                <ul className="space-y-2.5 mb-8">
+                  {["Unlimited minutes","24/7 answering","Appointment booking","Daily summaries","Custom script","Setup in 24h","Cancel anytime"].map(f => (
+                    <li key={f} className="flex items-center gap-3 text-gray-700 text-sm">
+                      <CheckCircle size={14} className="text-purple-600 flex-shrink-0"/>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/contact" className="btn block bg-purple-700 text-white font-bold py-3.5 rounded-xl text-center text-sm">
+                  Get Started
+                </Link>
+                <p className="text-gray-400 text-xs text-center mt-3">+ $200 one-time setup</p>
               </div>
-              <ul className="space-y-3 text-sm text-left mb-8">
-                {["Unlimited call minutes","24/7 answering","Appointment booking","Daily call summaries","Custom voice & script","Setup in 24 hours","Cancel anytime"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-purple-100">
-                    <CheckCircle size={15} className="text-green-400 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/contact" className="btn-scale block bg-white text-purple-700 font-black py-4 rounded-2xl text-center hover:bg-purple-50 transition-colors">
-                Get Started Today
-              </Link>
-              <p className="text-purple-400 text-xs mt-3 text-center">+ $200 one-time setup fee</p>
             </div>
-          </RevealOnScroll>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
-      <section className="py-24 px-5 relative overflow-hidden text-white text-center" style={{background:"linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%)"}}>
-        <div className="blob w-96 h-96 bg-white opacity-5 top-0 right-0" />
-        <RevealOnScroll className="relative max-w-2xl mx-auto">
-          <p className="text-white/60 font-bold uppercase tracking-widest text-xs mb-4">Ready to grow?</p>
-          <h2 className="text-3xl sm:text-4xl font-black mb-4">Stop losing calls.<br />Start winning customers.</h2>
-          <p className="text-white/70 text-lg mb-8">Every missed call is a missed customer. VoiceDesk fixes that — starting tomorrow.</p>
-          <Link href="/demo" className="btn-scale inline-block bg-white text-purple-700 font-black px-10 py-4 rounded-2xl shadow-2xl shadow-purple-900">
+      {/* BOTTOM CTA */}
+      <section className="py-16 px-5 bg-purple-700 text-center text-white">
+        <Reveal className="max-w-xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-black mb-3">Stop losing calls. Start growing.</h2>
+          <p className="text-purple-200 mb-7 text-sm">Your next missed call could be your next best customer.</p>
+          <Link href="/demo" className="btn inline-block bg-white text-purple-700 font-black px-8 py-3.5 rounded-xl shadow-lg">
             Hear the Demo →
           </Link>
-        </RevealOnScroll>
+        </Reveal>
       </section>
     </div>
   );
