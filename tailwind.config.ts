@@ -10,16 +10,21 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50:  "#f0f4ff",
-          100: "#e0e9ff",
-          500: "#4f6ef7",
-          600: "#3a56e8",
-          700: "#2c44d4",
-          900: "#1a2a8f",
+          50:  "#f5f3ff",
+          100: "#ede9fe",
+          200: "#ddd6fe",
+          400: "#a78bfa",
+          500: "#8b5cf6",
+          600: "#7c3aed",
+          700: "#6d28d9",
+          900: "#4c1d95",
         },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },

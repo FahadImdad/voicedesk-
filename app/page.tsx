@@ -1,150 +1,121 @@
 import Link from "next/link";
-import { Phone, Clock, Calendar, Star, ChevronRight, CheckCircle } from "lucide-react";
+import { CheckCircle, Star } from "lucide-react";
 
 const industries = [
-  {
-    icon: "🦷",
-    title: "Dental Clinics",
-    desc: "Never miss a patient call. AI answers, books, and confirms appointments 24/7.",
-    href: "/dental",
-  },
-  {
-    icon: "🏠",
-    title: "Real Estate",
-    desc: "Qualify leads instantly. AI follows up, answers questions, and books showings.",
-    href: "/real-estate",
-  },
-  {
-    icon: "💆",
-    title: "Salons & Spas",
-    desc: "Keep your chair full. AI handles bookings, cancellations, and reminders.",
-    href: "/salons",
-  },
+  { icon: "🦷", title: "Dental Clinics", desc: "Never miss a patient call again.", href: "/dental", color: "bg-blue-50 text-blue-600" },
+  { icon: "🏠", title: "Real Estate", desc: "Qualify leads. Book showings. Close more deals.", href: "/real-estate", color: "bg-green-50 text-green-600" },
+  { icon: "💆", title: "Salons & Spas", desc: "Fill your calendar without lifting a finger.", href: "/salons", color: "bg-pink-50 text-pink-600" },
 ];
 
 const features = [
-  { icon: <Phone size={22} />, title: "Answers Every Call", desc: "No more missed calls or voicemails that go unchecked." },
-  { icon: <Clock size={22} />, title: "Works 24/7/365", desc: "Nights, weekends, holidays — always available." },
-  { icon: <Calendar size={22} />, title: "Books Appointments", desc: "Syncs with your calendar and confirms bookings automatically." },
-  { icon: <Star size={22} />, title: "Sounds Human", desc: "Natural, warm voice — callers won't know it's AI." },
+  { emoji: "⚡", title: "Instant Answer", desc: "Responds in under 1 second. No hold music, no voicemail." },
+  { emoji: "📅", title: "Books Appointments", desc: "Syncs with your calendar and confirms bookings in real time." },
+  { emoji: "🌙", title: "24/7 Coverage", desc: "Nights, weekends, holidays — always available." },
+  { emoji: "🎙️", title: "Sounds Human", desc: "Natural, warm voice. Callers feel heard." },
+  { emoji: "📋", title: "Call Summaries", desc: "Get a full transcript after every call." },
+  { emoji: "🔧", title: "Custom Script", desc: "Trained on your business, services, and FAQs." },
 ];
 
 const steps = [
-  { num: "01", title: "We set up your agent", desc: "We configure your AI with your business info, services, and schedule." },
-  { num: "02", title: "Forward your calls", desc: "Point your existing number to VoiceDesk. Takes 2 minutes." },
-  { num: "03", title: "It handles everything", desc: "Answers, books, and logs every call. You get a summary." },
+  { num: "1", title: "We build your agent", desc: "We configure your AI with your clinic's info, services, and tone." },
+  { num: "2", title: "Forward your calls", desc: "Point your number to VoiceDesk. Takes 2 minutes. No tech needed." },
+  { num: "3", title: "It handles everything", desc: "Every call answered, every booking logged. You get daily summaries." },
 ];
 
 const testimonials = [
-  {
-    name: "Dr. Sarah Mitchell",
-    role: "Owner, Bright Smile Dental",
-    text: "We were missing 20+ calls a week. VoiceDesk paid for itself in the first 3 days.",
-    stars: 5,
-  },
-  {
-    name: "James Thornton",
-    role: "Real Estate Agent, NYC",
-    text: "My leads get answered instantly now. I've closed 2 extra deals this month because of faster follow-up.",
-    stars: 5,
-  },
-  {
-    name: "Maria Lopez",
-    role: "Owner, Bloom Spa",
-    text: "My clients love that they can book at midnight. No more phone tag.",
-    stars: 5,
-  },
+  { name: "Dr. Sarah M.", role: "Bright Smile Dental, Chicago", text: "We were missing 20+ calls a week. VoiceDesk paid for itself in 3 days." },
+  { name: "James T.", role: "Real Estate Agent, NYC", text: "Closed 2 extra deals this month because leads got answered instantly." },
+  { name: "Maria L.", role: "Bloom Spa, Miami", text: "My clients love booking at midnight. No more phone tag." },
 ];
 
 export default function Home() {
   return (
     <div className="pt-16">
-      {/* Hero */}
-      <section className="relative bg-gradient-to-br from-brand-50 via-white to-white py-24 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            AI Receptionist — Live 24/7
-          </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-            Your Business Deserves an{" "}
-            <span className="text-brand-600">AI Receptionist</span> That Never Sleeps
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-            VoiceDesk answers every call, books appointments, and handles inquiries — 24/7.
-            No missed calls. No hold music. No extra staff.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/demo"
-              className="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-brand-700 transition-colors shadow-lg shadow-brand-200"
-            >
-              See Live Demo →
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full text-lg hover:border-brand-400 hover:text-brand-600 transition-colors"
-            >
-              Talk to Us
-            </Link>
-          </div>
-          <p className="mt-4 text-sm text-gray-400">No credit card required · Setup in 24 hours</p>
+
+      {/* HERO */}
+      <section className="min-h-[90vh] flex flex-col items-center justify-center px-5 py-20 text-center bg-white">
+        <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-600 text-xs font-bold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest">
+          <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+          AI Receptionist · Live 24/7
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.08] tracking-tight max-w-4xl mb-6">
+          Your phones,{" "}
+          <span className="text-brand-600">answered.</span>
+          <br />Always.
+        </h1>
+
+        <p className="text-lg sm:text-xl text-gray-500 max-w-xl mb-10 leading-relaxed">
+          VoiceDesk's AI receptionist answers every call, books appointments, and handles
+          inquiries — so you never lose a customer to voicemail again.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm sm:max-w-none sm:justify-center">
+          <Link
+            href="/demo"
+            className="bg-brand-600 text-white font-bold px-8 py-4 rounded-2xl text-base hover:bg-brand-700 transition-colors shadow-lg shadow-brand-200"
+          >
+            Hear the Demo →
+          </Link>
+          <Link
+            href="/contact"
+            className="bg-gray-100 text-gray-800 font-bold px-8 py-4 rounded-2xl text-base hover:bg-gray-200 transition-colors"
+          >
+            Book a Call
+          </Link>
+        </div>
+
+        <p className="mt-5 text-xs text-gray-400">No credit card · Setup in 24 hours · Cancel anytime</p>
+      </section>
+
+      {/* SOCIAL PROOF */}
+      <section className="bg-gray-950 py-5 px-5">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 text-sm text-gray-400">
+          <span>⭐ 4.9/5 rating</span>
+          <span>📞 500K+ calls handled</span>
+          <span>⚡ &lt;1s response time</span>
+          <span>🏢 200+ businesses</span>
         </div>
       </section>
 
-      {/* Social proof bar */}
-      <section className="bg-gray-950 text-white py-5">
-        <div className="max-w-4xl mx-auto px-4 flex flex-wrap justify-center gap-8 text-sm font-medium text-gray-300">
-          <span>⭐ 4.9/5 average rating</span>
-          <span>📞 500,000+ calls handled</span>
-          <span>🕒 &lt;1s average response time</span>
-          <span>🏢 Trusted by 200+ businesses</span>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Built for Your Industry</h2>
-            <p className="text-lg text-gray-500">Specialized agents trained for your specific business needs.</p>
+      {/* INDUSTRIES */}
+      <section className="py-20 px-5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Built for your industry</h2>
+            <p className="text-gray-500">Specialized agents trained for your exact business.</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {industries.map((ind) => (
               <Link
                 key={ind.href}
                 href={ind.href}
-                className="group p-8 rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-50 transition-all"
+                className="group p-7 rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-lg transition-all bg-white"
               >
-                <div className="text-5xl mb-5">{ind.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
-                  {ind.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{ind.desc}</p>
-                <span className="flex items-center gap-1 text-brand-600 text-sm font-semibold">
-                  Learn more <ChevronRight size={16} />
-                </span>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-5 ${ind.color}`}>
+                  {ind.icon}
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">{ind.title}</h3>
+                <p className="text-sm text-gray-500">{ind.desc}</p>
+                <p className="text-brand-600 text-sm font-semibold mt-4">Learn more →</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Everything You Need</h2>
-            <p className="text-lg text-gray-500">One agent. All your front-desk needs covered.</p>
+      {/* FEATURES */}
+      <section className="py-20 px-5 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Everything included</h2>
+            <p className="text-gray-500">One agent handles your entire front desk.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f) => (
-              <div key={f.title} className="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm">
-                <div className="w-11 h-11 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-4">
-                  {f.icon}
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
+              <div key={f.title} className="bg-white p-6 rounded-2xl border border-gray-100">
+                <span className="text-3xl mb-4 block">{f.emoji}</span>
+                <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>
             ))}
@@ -152,22 +123,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-24 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Up and Running in 24 Hours</h2>
-            <p className="text-lg text-gray-500">No tech skills needed. We handle everything.</p>
+      {/* HOW IT WORKS */}
+      <section className="py-20 px-5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Live in 24 hours</h2>
+            <p className="text-gray-500">No tech skills needed. We do the setup.</p>
           </div>
-          <div className="space-y-8">
-            {steps.map((s) => (
-              <div key={s.num} className="flex gap-6 items-start">
-                <div className="w-14 h-14 flex-shrink-0 bg-brand-600 text-white font-extrabold text-lg rounded-2xl flex items-center justify-center">
+          <div className="flex flex-col gap-6">
+            {steps.map((s, i) => (
+              <div key={s.num} className="flex gap-5 items-start">
+                <div className="w-12 h-12 flex-shrink-0 bg-brand-600 text-white font-black text-lg rounded-2xl flex items-center justify-center">
                   {s.num}
                 </div>
                 <div className="pt-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{s.title}</h3>
-                  <p className="text-gray-500">{s.desc}</p>
+                  <h3 className="font-bold text-gray-900 mb-1">{s.title}</h3>
+                  <p className="text-gray-500 text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -175,21 +146,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Businesses Love VoiceDesk</h2>
+      {/* TESTIMONIALS */}
+      <section className="py-20 px-5 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Real results</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {testimonials.map((t) => (
-              <div key={t.name} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+              <div key={t.name} className="bg-white p-7 rounded-2xl border border-gray-100">
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-6">"{t.text}"</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-5">"{t.text}"</p>
                 <div>
                   <p className="font-bold text-gray-900 text-sm">{t.name}</p>
                   <p className="text-gray-400 text-xs">{t.role}</p>
@@ -200,56 +171,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Simple, Honest Pricing</h2>
-          <p className="text-lg text-gray-500 mb-14">One plan. Everything included. Cancel anytime.</p>
-          <div className="bg-gradient-to-br from-brand-600 to-brand-700 text-white rounded-3xl p-10 shadow-2xl shadow-brand-200 max-w-md mx-auto">
-            <p className="text-brand-200 font-semibold uppercase tracking-widest text-sm mb-4">Professional</p>
+      {/* PRICING */}
+      <section id="pricing" className="py-20 px-5">
+        <div className="max-w-sm mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Simple pricing</h2>
+          <p className="text-gray-500 mb-12">One plan. Everything included.</p>
+
+          <div className="bg-gray-950 text-white rounded-3xl p-8 shadow-2xl">
+            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Professional</p>
             <div className="flex items-end justify-center gap-1 mb-6">
-              <span className="text-6xl font-extrabold">$397</span>
-              <span className="text-brand-200 mb-2">/month</span>
+              <span className="text-5xl font-black">$397</span>
+              <span className="text-gray-400 mb-1.5 text-sm">/mo</span>
             </div>
             <ul className="space-y-3 text-sm text-left mb-8">
               {[
-                "Unlimited minutes",
-                "24/7 call answering",
+                "Unlimited call minutes",
+                "24/7 answering",
                 "Appointment booking",
-                "Call summaries via email",
+                "Daily call summaries",
                 "Custom voice & script",
                 "Setup in 24 hours",
                 "Cancel anytime",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <CheckCircle size={16} className="text-green-300 flex-shrink-0" />
+                <li key={item} className="flex items-center gap-3 text-gray-300">
+                  <CheckCircle size={15} className="text-green-400 flex-shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
             <Link
               href="/contact"
-              className="block bg-white text-brand-600 font-bold py-4 rounded-full hover:bg-brand-50 transition-colors text-center"
+              className="block bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-500 transition-colors text-center"
             >
-              Get Started Today
+              Get Started
             </Link>
-            <p className="text-brand-200 text-xs mt-4">+ One-time $200 setup fee</p>
+            <p className="text-gray-500 text-xs mt-3">+ $200 one-time setup fee</p>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-24 px-4 bg-gray-950 text-white text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl font-extrabold mb-4">Stop Losing Calls. Start Growing.</h2>
-          <p className="text-gray-400 text-lg mb-10">
-            Every missed call is a missed opportunity. Let VoiceDesk handle it.
-          </p>
+      {/* FINAL CTA */}
+      <section className="py-20 px-5 bg-brand-600 text-white text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black mb-4">Stop losing calls. Start growing.</h2>
+          <p className="text-brand-200 text-lg mb-8">Every missed call is a missed customer. VoiceDesk fixes that.</p>
           <Link
             href="/demo"
-            className="inline-block bg-brand-600 text-white font-bold px-10 py-4 rounded-full text-lg hover:bg-brand-500 transition-colors shadow-lg"
+            className="inline-block bg-white text-brand-600 font-bold px-10 py-4 rounded-2xl text-base hover:bg-brand-50 transition-colors"
           >
-            See the Demo →
+            Hear the Demo →
           </Link>
         </div>
       </section>
