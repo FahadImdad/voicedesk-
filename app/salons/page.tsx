@@ -1,0 +1,78 @@
+import Link from "next/link";
+import { CheckCircle, Star } from "lucide-react";
+
+const features = [
+  "Books appointments around the clock",
+  "Handles cancellations and reschedules",
+  "Sends appointment reminders",
+  "Answers service & pricing questions",
+  "Manages waitlist calls",
+  "Frees your staff to focus on clients",
+];
+
+export default function SalonsPage() {
+  return (
+    <div className="pt-16">
+      <section className="bg-gradient-to-br from-pink-50 via-white to-white py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-pink-100 text-pink-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            💆 Built for Salons & Spas
+          </div>
+          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+            Keep Your Chair Full.{" "}
+            <span className="text-brand-600">Always.</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+            VoiceDesk books appointments, handles cancellations, and answers
+            client questions — without interrupting your flow.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/demo" className="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-brand-700 transition-colors shadow-lg">
+              Hear the Demo →
+            </Link>
+            <Link href="/contact" className="border-2 border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full text-lg hover:border-brand-400 hover:text-brand-600 transition-colors">
+              Book a Call
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-14">Your New Front Desk</h2>
+          <div className="grid md:grid-cols-2 gap-5">
+            {features.map((f) => (
+              <div key={f} className="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <CheckCircle size={20} className="text-pink-500 flex-shrink-0" />
+                <span className="text-gray-700 font-medium">{f}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 bg-gray-50 text-center">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex gap-1 justify-center mb-6">
+            {[...Array(5)].map((_, i) => <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />)}
+          </div>
+          <blockquote className="text-2xl font-medium text-gray-800 leading-relaxed mb-8">
+            "My clients love that they can book at midnight. No more phone tag with my receptionist."
+          </blockquote>
+          <p className="font-bold text-gray-900">Maria Lopez</p>
+          <p className="text-gray-500 text-sm">Owner, Bloom Spa — Miami, FL</p>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 bg-gray-950 text-white text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl font-extrabold mb-4">Your Clients Want to Book. Let Them.</h2>
+          <p className="text-gray-400 text-lg mb-10">Don't lose bookings to voicemail. VoiceDesk is always on.</p>
+          <Link href="/contact" className="inline-block bg-brand-600 text-white font-bold px-10 py-4 rounded-full text-lg hover:bg-brand-500 transition-colors">
+            Get Started →
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
