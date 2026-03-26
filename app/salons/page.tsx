@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Star } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const features = [
   "Books appointments around the clock",
@@ -48,19 +48,6 @@ export default function SalonsPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 bg-gray-50 text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex gap-1 justify-center mb-6">
-            {[...Array(5)].map((_, i) => <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />)}
-          </div>
-          <blockquote className="text-2xl font-medium text-gray-800 leading-relaxed mb-8">
-            "My clients love that they can book at midnight. No more phone tag with my receptionist."
-          </blockquote>
-          <p className="font-bold text-gray-900">Maria Lopez</p>
-          <p className="text-gray-500 text-sm">Owner, Bloom Spa — Miami, FL</p>
         </div>
       </section>
 

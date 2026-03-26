@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Star } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const pains = [
   "Patients call, hit voicemail, and book with a competitor",
@@ -104,20 +104,6 @@ export default function DentalPage() {
           <Link href="/contact" className="inline-block bg-white text-brand-600 font-bold px-8 py-4 rounded-2xl hover:bg-brand-50 transition-colors">
             Start Recovering Revenue →
           </Link>
-        </div>
-      </section>
-
-      {/* TESTIMONIAL */}
-      <section className="py-20 px-5 text-center">
-        <div className="max-w-xl mx-auto">
-          <div className="flex gap-1 justify-center mb-6">
-            {[...Array(5)].map((_, i) => <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />)}
-          </div>
-          <p className="text-xl sm:text-2xl font-semibold text-gray-800 leading-relaxed mb-8">
-            "We were missing 20+ calls a week. VoiceDesk paid for itself in the first 3 days."
-          </p>
-          <p className="font-bold text-gray-900">Dr. Sarah Mitchell</p>
-          <p className="text-gray-400 text-sm">Owner, Bright Smile Dental — Chicago, IL</p>
         </div>
       </section>
 

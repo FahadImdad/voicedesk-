@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Star } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const industries = [
   { icon: "🦷", title: "Dental Clinics", desc: "Never miss a patient call again.", href: "/dental", color: "bg-blue-50 text-blue-600" },
@@ -12,20 +12,14 @@ const features = [
   { emoji: "📅", title: "Books Appointments", desc: "Syncs with your calendar and confirms bookings in real time." },
   { emoji: "🌙", title: "24/7 Coverage", desc: "Nights, weekends, holidays — always available." },
   { emoji: "🎙️", title: "Sounds Human", desc: "Natural, warm voice. Callers feel heard." },
-  { emoji: "📋", title: "Call Summaries", desc: "Get a full transcript after every call." },
+  { emoji: "📋", title: "Call Summaries", desc: "Get a full recap of every call delivered to your inbox." },
   { emoji: "🔧", title: "Custom Script", desc: "Trained on your business, services, and FAQs." },
 ];
 
 const steps = [
-  { num: "1", title: "We build your agent", desc: "We configure your AI with your clinic's info, services, and tone." },
+  { num: "1", title: "We build your agent", desc: "We configure your AI with your business info, services, and tone." },
   { num: "2", title: "Forward your calls", desc: "Point your number to VoiceDesk. Takes 2 minutes. No tech needed." },
   { num: "3", title: "It handles everything", desc: "Every call answered, every booking logged. You get daily summaries." },
-];
-
-const testimonials = [
-  { name: "Dr. Sarah M.", role: "Bright Smile Dental, Chicago", text: "We were missing 20+ calls a week. VoiceDesk paid for itself in 3 days." },
-  { name: "James T.", role: "Real Estate Agent, NYC", text: "Closed 2 extra deals this month because leads got answered instantly." },
-  { name: "Maria L.", role: "Bloom Spa, Miami", text: "My clients love booking at midnight. No more phone tag." },
 ];
 
 export default function Home() {
@@ -36,7 +30,7 @@ export default function Home() {
       <section className="min-h-[90vh] flex flex-col items-center justify-center px-5 py-20 text-center bg-white">
         <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-600 text-xs font-bold px-4 py-1.5 rounded-full mb-8 uppercase tracking-widest">
           <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-          AI Receptionist · Live 24/7
+          AI Receptionist · Available 24/7
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.08] tracking-tight max-w-4xl mb-6">
@@ -50,7 +44,7 @@ export default function Home() {
           inquiries — so you never lose a customer to voicemail again.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm sm:max-w-none sm:justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs sm:max-w-none sm:justify-center">
           <Link
             href="/demo"
             className="bg-brand-600 text-white font-bold px-8 py-4 rounded-2xl text-base hover:bg-brand-700 transition-colors shadow-lg shadow-brand-200"
@@ -68,18 +62,8 @@ export default function Home() {
         <p className="mt-5 text-xs text-gray-400">No credit card · Setup in 24 hours · Cancel anytime</p>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="bg-gray-950 py-5 px-5">
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 text-sm text-gray-400">
-          <span>⭐ 4.9/5 rating</span>
-          <span>📞 500K+ calls handled</span>
-          <span>⚡ &lt;1s response time</span>
-          <span>🏢 200+ businesses</span>
-        </div>
-      </section>
-
       {/* INDUSTRIES */}
-      <section className="py-20 px-5">
+      <section className="py-20 px-5 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Built for your industry</h2>
@@ -105,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-20 px-5 bg-gray-50">
+      <section className="py-20 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Everything included</h2>
@@ -113,7 +97,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f) => (
-              <div key={f.title} className="bg-white p-6 rounded-2xl border border-gray-100">
+              <div key={f.title} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                 <span className="text-3xl mb-4 block">{f.emoji}</span>
                 <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
@@ -124,14 +108,14 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20 px-5">
+      <section className="py-20 px-5 bg-gray-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Live in 24 hours</h2>
-            <p className="text-gray-500">No tech skills needed. We do the setup.</p>
+            <p className="text-gray-500">No tech skills needed. We handle the setup.</p>
           </div>
           <div className="flex flex-col gap-6">
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <div key={s.num} className="flex gap-5 items-start">
                 <div className="w-12 h-12 flex-shrink-0 bg-brand-600 text-white font-black text-lg rounded-2xl flex items-center justify-center">
                   {s.num}
@@ -139,31 +123,6 @@ export default function Home() {
                 <div className="pt-2">
                   <h3 className="font-bold text-gray-900 mb-1">{s.title}</h3>
                   <p className="text-gray-500 text-sm">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="py-20 px-5 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Real results</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white p-7 rounded-2xl border border-gray-100">
-                <div className="flex gap-0.5 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-5">"{t.text}"</p>
-                <div>
-                  <p className="font-bold text-gray-900 text-sm">{t.name}</p>
-                  <p className="text-gray-400 text-xs">{t.role}</p>
                 </div>
               </div>
             ))}
