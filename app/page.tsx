@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 import { Reveal, StaggerGrid } from "@/components/AnimatedSection";
+import PricingCalculator from "@/components/PricingCalculator";
 
 export default function Home() {
   return (
@@ -161,33 +162,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRICING — one card, no fluff */}
+      {/* PRICING — interactive calculator */}
       <section id="pricing" className="py-16 px-5 bg-gray-950">
-        <div className="max-w-xs mx-auto">
+        <div className="max-w-2xl mx-auto">
+          <Reveal className="text-center mb-10">
+            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-3">Pricing</p>
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">Build your own plan</h2>
+            <p className="text-gray-400 text-sm">Slide to your volume. Pick your features. See your price instantly.</p>
+          </Reveal>
           <Reveal>
-            <p className="text-center text-gray-400 text-sm mb-8 font-medium">One plan. No surprises.</p>
-            <div className="bg-white rounded-3xl overflow-hidden">
-              <div className="h-1 bg-gradient-to-r from-purple-600 to-pink-500"/>
-              <div className="p-8">
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-3">Professional</p>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-5xl font-black text-gray-900">$397</span>
-                  <span className="text-gray-400 text-sm">/mo</span>
-                </div>
-                <ul className="space-y-2.5 mb-8">
-                  {["Unlimited minutes","24/7 answering","Appointment booking","Daily summaries","Custom script","Setup in 24h","Cancel anytime"].map(f => (
-                    <li key={f} className="flex items-center gap-3 text-gray-700 text-sm">
-                      <CheckCircle size={14} className="text-purple-600 flex-shrink-0"/>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className="btn block bg-purple-700 text-white font-bold py-3.5 rounded-xl text-center text-sm">
-                  Get Started
-                </Link>
-                <p className="text-gray-400 text-xs text-center mt-3">+ $200 one-time setup</p>
-              </div>
-            </div>
+            <PricingCalculator />
           </Reveal>
         </div>
       </section>
